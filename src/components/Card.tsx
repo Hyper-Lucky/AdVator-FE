@@ -15,6 +15,7 @@ const Card = ({ inCart, apart }: CartProps) => {
         border: 'none',
         boxShadow: 'none',
         height: '204px',
+        overflow: 'visible',
       }}
       variant="outlined"
     >
