@@ -1,5 +1,6 @@
 import { Box, CardContent, Divider, Stack, Typography } from '@mui/material';
 import Card from '../../../components/Card';
+import { totalPrice } from 'src/utils/calc';
 
 interface CardSectionProps {
   inCart: boolean;
@@ -79,8 +80,6 @@ const CardSection = ({ inCart }: CardSectionProps) => {
     },
   ];
 
-  const totalEstimate = aparts.reduce((acc, item) => acc + item.unitPrice, 0);
-
   return (
     <Box
       sx={{
@@ -115,7 +114,7 @@ const CardSection = ({ inCart }: CardSectionProps) => {
       <Box height={80} display="flex" justifyContent="space-between" alignItems="center" color={'primary'}>
         <Typography fontWeight="bold">총 견적 금액</Typography>
         <Typography fontWeight="bold" variant="h6" color="primary">
-          {totalEstimate.toLocaleString()}원
+          {totalPrice(aparts).toLocaleString()}원
         </Typography>
       </Box>
     </Box>

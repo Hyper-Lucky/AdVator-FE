@@ -43,9 +43,9 @@ const Form = () => {
     <Stack direction="row" sx={{ padding: 10 }}>
       <CardSection inCart={false} />
       <Stack sx={{ width: '100%', padding: 10 }}>
-        {/* <LocalizationProvider dateAdapter={AdapterDateFns}> */}
-        <FormSection formData={formData} handleFormData={handleFormData} />
-        {/* </LocalizationProvider> */}
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <FormSection formData={formData} handleFormData={handleFormData} />
+        </LocalizationProvider>
         <AgreeSection formData={formData} handleFormData={handleFormData} />
         <Button variant="contained" onClick={handleSubmit}>
           실 견적 문의하기
