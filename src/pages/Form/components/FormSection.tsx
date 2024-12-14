@@ -59,7 +59,7 @@ const FormSection = ({ formData, handleFormData }: FormSectionProps) => {
             onChange={handleFormData}
           />
         </Box>
-        {/* <DatePicker /> */}
+        <DatePicker />
       </Box>
       <Box sx={{ width: '100%' }}>
         <Typography fontWeight="semibold">기타 요청/문의사항</Typography>
