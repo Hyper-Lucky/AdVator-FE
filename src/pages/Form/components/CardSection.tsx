@@ -102,10 +102,12 @@ const CardSection = ({ inCart }: CardSectionProps) => {
       </Box>
 
       {/* 개별 카드 */}
-      <Stack divider={<Divider />} overflow={'scroll'} height={'100%'} spacing={2} marginY={2}>
-        {aparts.map((apart, index) => (
-          <Card key={index} inCart={inCart} apart={apart} />
-        ))}
+      <Stack height={788}>
+        <Stack divider={<Divider />} overflow={'scroll'} spacing={2} marginY={2}>
+          {aparts.map((apart, index) => (
+            <Card key={index} inCart={inCart} apart={apart} />
+          ))}
+        </Stack>
       </Stack>
 
       {/* 하단 총 견적 금액 */}
