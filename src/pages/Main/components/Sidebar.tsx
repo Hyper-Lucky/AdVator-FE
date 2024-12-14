@@ -1,8 +1,10 @@
-import { Drawer, Toolbar, Tab, Tabs, AppBar } from '@mui/material';
+import { Drawer, Toolbar, Tab, Tabs, AppBar, Divider, Stack } from '@mui/material';
 import CardSection from './CardSection';
 import { useState } from 'react';
+import FilterSection from './FilterSection';
+import SortSelect from './SortSelect';
 
-const drawerWidth = 300;
+const drawerWidth = 360;
 const Sidebar = () => {
   const [tab, setTab] = useState(0);
 
@@ -33,7 +35,15 @@ const Sidebar = () => {
           <Tab label="내가 담은 단지" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <CardSection inCart={tab === 0 ? true : false} />
+      <FilterSection />
+      <Divider />
+
+      <Stack height={'100%'}>
+        <Stack overflow={'scroll'}>
+          <SortSelect />
+          <CardSection inCart={tab === 0 ? true : false} />
+        </Stack>
+      </Stack>
     </Drawer>
   );
 };

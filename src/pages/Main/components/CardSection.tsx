@@ -80,13 +80,11 @@ const CardSection = ({ inCart }: CardSectionProps) => {
   ];
 
   return (
-    <div>
-      <Stack divider={<Divider />} overflow={'scroll'} height={'100%'} spacing={2} marginY={2}>
-        {aparts.map((apart, index) => (
-          <Card key={index} inCart={inCart} apart={apart} />
-        ))}
-      </Stack>
-    </div>
+    <Stack divider={<Divider />} spacing={2} marginY={2}>
+      {aparts.map((apart, index) => (
+        <Card key={index} inCart={inCart} apart={apart} />
+      ))}
+    </Stack>
   );
 };
 
