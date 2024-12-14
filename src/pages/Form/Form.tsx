@@ -1,7 +1,7 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import FormSection from './components/FormSection';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { Box, Button, SelectChangeEvent } from '@mui/material';
+import { Button, SelectChangeEvent, Stack } from '@mui/material';
 import AgreeSection from './components/AgreeSection';
 import { useState } from 'react';
 import { AdvertisingRequest } from '@api/dto';
@@ -40,8 +40,9 @@ const Form = () => {
   };
 
   return (
-    <Box sx={{ height: '100%', marginTop: 8, display: 'flex' }}>
-      <Box sx={{ width: '100%', padding: 10, display: 'flex', flexDirection: 'column' }}>
+    <Stack direction="row" sx={{ padding: 10 }}>
+      <CardSection inCart={false} />
+      <Stack sx={{ width: '100%', padding: 10 }}>
         {/* <LocalizationProvider dateAdapter={AdapterDateFns}> */}
         <FormSection formData={formData} handleFormData={handleFormData} />
         {/* </LocalizationProvider> */}
@@ -49,8 +50,8 @@ const Form = () => {
         <Button variant="contained" onClick={handleSubmit}>
           실 견적 문의하기
         </Button>
-      </Box>
-    </Box>
+      </Stack>
+    </Stack>
   );
 };
 
