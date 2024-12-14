@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 
 const Header = () => {
+  /* TODO - pageparam 처리 필요 */
   const pageparam: 'full' | 'split' | null = 'full';
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: 'white' }}>

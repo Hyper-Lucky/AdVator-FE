@@ -1,3 +1,4 @@
+import Sidebar from './components/Sidebar';
 import BasicMap from '@components/Map';
 import { useState } from 'react';
 import { LatLng } from '@api/dto';
@@ -18,6 +19,7 @@ const Main = () => {
       }}
     >
       <BasicMap center={center} />
+      <Sidebar />
     </Stack>
   );
 };
