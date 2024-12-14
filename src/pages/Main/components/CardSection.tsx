@@ -1,5 +1,5 @@
-import { Box, CardContent, Divider, Stack, Typography } from '@mui/material';
-import Card from '../../../components/Card';
+import Card from '@components/Card';
+import { Stack, Divider } from '@mui/material';
 
 interface CardSectionProps {
   inCart: boolean;
@@ -79,44 +79,14 @@ const CardSection = ({ inCart }: CardSectionProps) => {
     },
   ];
 
-  const totalEstimate = aparts.reduce((acc, item) => acc + item.unitPrice, 0);
-
   return (
-    <Box
-      sx={{
-        width: '100%',
-        maxWidth: '400px',
-        margin: '60px auto',
-        padding: '16px',
-        backgroundColor: '#fff',
-        borderRadius: '8px',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-      }}
-    >
-      {/* 상단 영역 */}
-      <Box display="flex" justifyContent="space-between" alignItems="center" marginBottom={2}>
-        <Typography fontWeight="bold" variant="h6">
-          내가 선택한 단지
-        </Typography>
-        <Typography color="text.secondary">수량 {aparts.length}건</Typography>
-      </Box>
-
-      {/* 개별 카드 */}
+    <div>
       <Stack divider={<Divider />} overflow={'scroll'} height={'100%'} spacing={2} marginY={2}>
         {aparts.map((apart, index) => (
           <Card key={index} inCart={inCart} apart={apart} />
         ))}
       </Stack>
-
-      {/* 하단 총 견적 금액 */}
-      <Divider />
-      <Box height={80} display="flex" justifyContent="space-between" alignItems="center" color={'primary'}>
-        <Typography fontWeight="bold">총 견적 금액</Typography>
-        <Typography fontWeight="bold" variant="h6" color="primary">
-          {totalEstimate.toLocaleString()}원
-        </Typography>
-      </Box>
-    </Box>
+    </div>
   );
 };
 
