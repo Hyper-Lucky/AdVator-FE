@@ -1,12 +1,24 @@
-import { Box, Chip, Divider, Stack, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Box, Chip, Stack, Typography } from '@mui/material';
 
-const FilterSection = ({}) => {
-  const [selectedRating, setSelectedRating] = useState<string | null>(null);
-  const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
-
+const FilterSection = ({
+  requestData: { selectedRatings, selectedCompanies, setSelectedRatings, setSelectedCompanies },
+}: any) => {
   const ratings = ['S+', 'S', 'A+', 'A'];
-  const companies = ['포커스미디어', 'KT타운보드', '미디어믿'];
+  const companies = ['포커스 미디어 코리아', 'KT 타운보드', '미디어 믿'];
+
+  // 등급 선택 핸들러
+  const handleRatingClick = (rating: string) => {
+    setSelectedRatings((prev: any) =>
+      prev.includes(rating) ? prev.filter((r: any) => r !== rating) : [...prev, rating],
+    );
+  };
+
+  // 업체 선택 핸들러
+  const handleCompanyClick = (company: string) => {
+    setSelectedCompanies((prev: any) =>
+      prev.includes(company) ? prev.filter((c: any) => c !== company) : [...prev, company],
+    );
+  };
 
   return (
     <Box sx={{ padding: 2 }}>
@@ -20,10 +32,10 @@ const FilterSection = ({}) => {
             size="small"
             key={rating}
             label={rating}
-            onClick={() => setSelectedRating(rating === selectedRating ? null : rating)}
+            onClick={() => handleRatingClick(rating)}
             clickable
-            variant={rating === selectedRating ? 'filled' : 'outlined'} // 선택 상태 스타일
-            color={rating === selectedRating ? 'primary' : 'default'} // 선택된 경우 색상 변경
+            variant={selectedRatings.includes(rating) ? 'filled' : 'outlined'} // 선택 상태 스타일
+            color={selectedRatings.includes(rating) ? 'primary' : 'default'} // 선택된 경우 색상 변경
           />
         ))}
       </Stack>
@@ -38,10 +50,10 @@ const FilterSection = ({}) => {
             size="small"
             key={company}
             label={company}
-            onClick={() => setSelectedCompany(company === selectedCompany ? null : company)}
+            onClick={() => handleCompanyClick(company)}
             clickable
-            variant={company === selectedCompany ? 'filled' : 'outlined'}
-            color={company === selectedCompany ? 'primary' : 'default'}
+            variant={selectedCompanies.includes(company) ? 'filled' : 'outlined'}
+            color={selectedCompanies.includes(company) ? 'primary' : 'default'}
           />
         ))}
       </Stack>

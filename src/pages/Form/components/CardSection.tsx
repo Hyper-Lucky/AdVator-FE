@@ -1,85 +1,14 @@
 import { Box, CardContent, Divider, Stack, Typography } from '@mui/material';
 import Card from '../../../components/Card';
 import { totalPrice } from 'src/utils/calc';
+import { Apart } from '@api/dto';
 
 interface CardSectionProps {
   inCart: boolean;
+  aparts: Apart[];
 }
 
-const CardSection = ({ inCart }: CardSectionProps) => {
-  const aparts = [
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-    {
-      apartName: '개포주공5단지', // 아파트명, String
-      unitPrice: 7000, // 1대당 가격, Long
-      tvCount: 2, // 총 대수, Long
-      totalPrice: 14000, // 총 가격, Long
-      company: '포커스 미디어 코리아', // 업체명, String
-      address: '서울 강남구 개포동 187', // 주소, String
-      rating: 'A', // 등급, String
-      request: 10, // 견적 요청 수, Long
-    },
-  ];
-
+const CardSection = ({ inCart, aparts }: CardSectionProps) => {
   return (
     <Box
       sx={{
