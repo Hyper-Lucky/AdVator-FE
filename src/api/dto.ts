@@ -23,7 +23,7 @@ export interface AdvertisingRequest {
   phone: string; // 연락처
   email: string; // 이메일
   personalAgree: boolean; // 개인정보 수집/이용 동의 여부
-  marketingAgree: boolean; // 마케팅 정보 수신 동의 여부
+  /* marketingAgree: boolean; // 마케팅 정보 수신 동의 여부 */
 }
 
 export interface SearchOptions {
@@ -31,13 +31,16 @@ export interface SearchOptions {
   district: string; // 주소 - 구
   area: string; // 주소 - 동
   sort?: 'low' | 'high'; // 가격 정렬 기준, "low"가 Default
-  rating?: string | null; // 등급, 선택하지 않을 경우 null
-  company?: string | null; // 광고 업체, 선택하지 않을 경우 null
+  rating?: string[] | null; // 등급, 선택하지 않을 경우 null
+  company?: string[] | null; // 광고 업체, 선택하지 않을 경우 null
 }
 
 export interface GPSCoordinates {
   gpsX: number; // 위도
   gpsY: number; // 경도
+  sort?: 'low' | 'high'; // 가격 정렬 기준, "low"가 Default
+  rating?: string | null; // 등급, 선택하지 않을 경우 null
+  company?: string | null; // 광고 업체, 선택하지 않을 경우 null
 }
 
 export interface LatLng {

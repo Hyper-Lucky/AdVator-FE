@@ -1,26 +1,33 @@
 import { useState } from 'react';
 import { Box, MenuItem, Select, SelectChangeEvent, Stack, Typography } from '@mui/material';
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 
-const SortSelect = () => {
-  const [sortOption, setSortOption] = useState('low'); // 초기 값 설정
-
+const SortSelect = ({ requestData: { sort, setSort } }: { requestData: any }) => {
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setSortOption(event.target.value); // string 타입으로 사용 가능
+    setSort(event.target.value); // string 타입으로 사용 가능
   };
 
   return (
     <Stack direction={'row'} justifyContent={'end'}>
       <Select
-        value={sortOption}
+        value={sort}
         onChange={handleChange}
         displayEmpty
         variant="standard"
+        IconComponent={UnfoldMoreIcon}
         sx={{
-          width: 100,
-          fontSize: '14px',
+          width: 110,
+          fontSize: '16px',
+          margin: 1,
           fontWeight: 'bold',
-          '& .MuiSelect-icon': {
-            marginRight: '-8px', // 화살표 위치 조정
+          '&:before': {
+            borderBottom: 'none',
+          },
+          '&:after': {
+            borderBottom: 'none',
+          },
+          '&:hover': {
+            borderBottom: 'none',
           },
         }}
       >

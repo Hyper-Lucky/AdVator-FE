@@ -8,7 +8,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from './style/muiTheme.ts';
 import axios from 'axios';
 
-axios.defaults.baseURL = import.meta.env.REACT_APP_API_URL;
+axios.defaults.baseURL = import.meta.env.VITE_REACT_APP_API_URL;
 axios.defaults.withCredentials = true;
 
 const queryClient = new QueryClient({
